@@ -1,10 +1,11 @@
 "use strict";
-var fs = require('fs');
-var path = require('path');
-var knex = require('knex');
-var pascalCase = require('pascal-case');
-var pluralize = require('pluralize');
-var Promise = require('bluebird');
+Object.defineProperty(exports, "__esModule", { value: true });
+var fs = require("fs");
+var path = require("path");
+var knex = require("knex");
+var pascalCase = require("pascal-case");
+var pluralize = require("pluralize");
+var Promise = require("bluebird");
 function getTSType(sqlType) {
     var type = 'any';
     if (/tinyint\(1\)|bool/i.test(sqlType)) {
@@ -39,7 +40,7 @@ function generate(options) {
     });
     return new Promise(function (resolve, reject) {
         db.raw("DESCRIBE " + table).then(function (info) {
-            var tsString = "interface " + interfaceName + " {\n";
+            var tsString = "export interface " + interfaceName + " {\n";
             for (var _i = 0, _a = info[0]; _i < _a.length; _i++) {
                 var i = _a[_i];
                 var begin = intend === 'tab' ? '\t' : Array(intend).join(' ');
@@ -55,6 +56,5 @@ function generate(options) {
         });
     });
 }
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = generate;
 //# sourceMappingURL=index.js.map

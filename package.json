@@ -4,7 +4,7 @@
   "description": "Create TypeScript interface from SQL schema",
   "main": "src/index.js",
   "scripts": {
-    "test": ""
+    "start": "tsc && node bin/bin.js --path interfaces/ -h localhost -u root -p t660VL8kefTa -d doc -t doctype"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/annsk/sql2ts#readme",
   "devDependencies": {
+    "knex": "^0.12.7",
+    "mysql": "^2.13.0",
     "typescript": "^2.0.2"
   },
   "bin": {

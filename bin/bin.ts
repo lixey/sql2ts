@@ -6,7 +6,7 @@ cli.enable('version');
 const options = cli.parse({
     host: ['h', 'Host.', 'url', 'localhost'],
     user: ['u', 'Database user.', 'string'],
-    password: ['p', 'Database password.', 'password'],
+    password: ['p', 'Database password.', 'string'],
     database: ['d', 'Database name.', 'string'],
     table: ['t', 'Table name.', 'string'],
     intend: ['i', 'Intendation size. Tab or space count.'],

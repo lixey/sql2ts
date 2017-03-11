@@ -49,7 +49,7 @@ export default function generate(options): Promise<any> {
     });
     return new Promise((resolve, reject) => {
         (<any>db.raw(`DESCRIBE ${table}`)).then((info) => {
-            let tsString = `interface ${interfaceName} {\n`;
+            let tsString = `export interface ${interfaceName} {\n`;
             for (let i of info[0]) {
                 const begin = intend === 'tab' ? '\t' : Array(intend).join(' ');
                 tsString += `${begin}${i.Field}: ${getTSType(i.Type)};\n`
